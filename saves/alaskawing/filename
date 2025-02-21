@@ -1,5 +1,5 @@
 {
-    "currency": 392,
+    "currency": 0,
     "skillTree": {
         "keys": [
             "Blackhole",
@@ -81,9 +81,9 @@
     "equipmentId": [],
     "checkpoints": {
         "keys": [
-            "8d3adcc2-b4da-42b1-8959-5ac7afb01f3f",
             "2d3adcc2-b4da-42b1-8959-5ac7afb01f3f",
-            "49972962-ab4f-4332-8ff8-656df73685c9"
+            "49972962-ab4f-4332-8ff8-656df73685c9",
+            "8d3adcc2-b4da-42b1-8959-5ac7afb01f3f"
         ],
         "values": [
             true,
