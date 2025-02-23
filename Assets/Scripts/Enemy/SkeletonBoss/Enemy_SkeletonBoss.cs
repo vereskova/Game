@@ -1,21 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-// Босс наследуется от обычного скелета, чтобы переиспользовать всю ту же логику
 public class Enemy_SkeletonBoss : Enemy_Skeleton
 {
-    [Header("Boss Stats")]
-    // При желании можно переопределить какие-то характеристики
-      public float bossExtraHP = 100;
-    // public float bossExtraDamage = 10;
+    [Header("End Game Settings")]
+    [Tooltip("Объект стены, который блокирует путь. При смерти босса отключается.")]
+    public GameObject bossWall;
+    
+    [Tooltip("Объект сундука, который появляется после смерти босса.")]
+    public GameObject chest;
+    
+    [Tooltip("Объект UI с титрами (если используется). Если не указан, будет загружена отдельная сцена.")]
+    public GameObject creditsUI;
+    
+    [Tooltip("Задержка перед переходом к титрам (если creditsUI не указан).")]
+    public float creditsDelay = 5f;
 
     protected override void Awake()
     {
-        // Вызываем базовый Awake из Enemy_Skeleton (там создаются idleState, moveState и т.д.)
+        // Вызываем базовый Awake, где создаются все состояния.
         base.Awake();
         
-        // Можем при необходимости менять параметры (moveSpeed, attackDistance, etc.)
+        // При необходимости можно менять параметры босса:
         // moveSpeed = 2.5f;
         // attackDistance = 2f;
     }
@@ -23,13 +30,42 @@ public class Enemy_SkeletonBoss : Enemy_Skeleton
     protected override void Start()
     {
         base.Start();
-        // По умолчанию идёт в idleState (точно как обычный скелет)
+        // Босс начнёт работу в idleState (так же, как обычный скелет)
     }
 
-    // Если нужно, переопределяем Die(), CanBeStunned() и т.п.
-    //public override void Die()
-    //{
-    //    base.Die();
-    //    // Дополнительные эффекты
-    //}
+    public override void Die()
+    {
+        // Вызываем стандартную логику смерти (например, проигрывается анимация, отключается коллайдер и т.п.)
+        base.Die();
+        // Запускаем нашу логику окончания игры после смерти босса.
+        OnBossDefeated();
+    }
+
+    private void OnBossDefeated()
+    {
+        // Открываем стену: отключаем объект стены
+        if (bossWall != null)
+            bossWall.SetActive(false);
+
+        // Показываем сундук: включаем объект сундука
+        if (chest != null)
+            chest.SetActive(true);
+
+        // Если у вас есть UI с титрами, показываем его
+        if (creditsUI != null)
+        {
+            creditsUI.SetActive(true);
+        }
+        else
+        {
+            // Если UI нет, через некоторое время загружаем сцену с титрами
+            StartCoroutine(LoadCreditsAfterDelay(creditsDelay));
+        }
+    }
+
+    private IEnumerator LoadCreditsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("MainTheEnd");
+    }
 }
