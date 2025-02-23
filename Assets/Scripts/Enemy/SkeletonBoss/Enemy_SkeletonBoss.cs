@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Enemy_SkeletonBoss : Enemy_Skeleton
 {
@@ -19,53 +18,38 @@ public class Enemy_SkeletonBoss : Enemy_Skeleton
 
     protected override void Awake()
     {
-        // Вызываем базовый Awake, где создаются все состояния.
+        // Вызываем базовый Awake, где создаются все состояния скелета
         base.Awake();
-        
-        // При необходимости можно менять параметры босса:
-        // moveSpeed = 2.5f;
-        // attackDistance = 2f;
+        // При необходимости можно изменить параметры босса (moveSpeed, attackDistance, и т.д.)
     }
 
     protected override void Start()
     {
         base.Start();
-        // Босс начнёт работу в idleState (так же, как обычный скелет)
+        // Босс начнёт работу в idleState, как обычный скелет
     }
 
     public override void Die()
     {
-        // Вызываем стандартную логику смерти (например, проигрывается анимация, отключается коллайдер и т.п.)
+        // Вызываем стандартную логику смерти (анимация, отключение коллайдера и т.п.)
         base.Die();
-        // Запускаем нашу логику окончания игры после смерти босса.
+
+        // После смерти запускаем цепочку окончания игры
         OnBossDefeated();
     }
 
     private void OnBossDefeated()
     {
-        // Открываем стену: отключаем объект стены
+        // Отключаем стену (она больше не должна блокировать путь)
         if (bossWall != null)
             bossWall.SetActive(false);
 
-        // Показываем сундук: включаем объект сундука
+        // Активируем сундук, чтобы он появился в сцене и открылся (OnEnable в ChestController сработает)
         if (chest != null)
             chest.SetActive(true);
 
-        // Если у вас есть UI с титрами, показываем его
-        if (creditsUI != null)
-        {
-            creditsUI.SetActive(true);
-        }
-        else
-        {
-            // Если UI нет, через некоторое время загружаем сцену с титрами
-            StartCoroutine(LoadCreditsAfterDelay(creditsDelay));
-        }
-    }
-
-    private IEnumerator LoadCreditsAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("MainTheEnd");
+        // Если вы используете creditsUI вместо перехода через сундук,
+        // можно здесь запустить логику отображения титров.
+        // Но если сундук отвечает за переход, оставьте это пустым.
     }
 }
