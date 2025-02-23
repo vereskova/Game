@@ -89064,7 +89064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDrop: {fileID: 0}
-  delayBeforeSceneChange: 5
+  delayBeforeSceneChange: 7
 --- !u!114 &1548060699
 MonoBehaviour:
   m_ObjectHideFlags: 0
