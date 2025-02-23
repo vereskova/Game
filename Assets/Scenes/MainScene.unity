@@ -4509,7 +4509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225532343}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Checkpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5121,7 +5121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264964366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.82, y: 3.72, z: 0}
+  m_LocalPosition: {x: 20.78, y: 4.28, z: 0}
   m_LocalScale: {x: 0.041806296, y: 0.47613883, z: 0.47613883}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17370,11 +17370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282633531002, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282633531002, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -1794020585
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282687218733, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
@@ -52832,7 +52832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753362, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753373, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_RootOrder
@@ -82024,6 +82024,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5413061282323127976, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413061282323127976, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 5413061282687218733, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -82150,11 +82158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725303, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725303, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: whatIsPlayer.m_Bits
-      value: 72
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6484991083977285883, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
@@ -82588,7 +82596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753362, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753373, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_RootOrder
@@ -89048,7 +89056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1548060694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90046,6 +90054,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5413061282323127976, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413061282323127976, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
     - target: {fileID: 5413061282687218733, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -90184,11 +90200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725303, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725303, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: whatIsPlayer.m_Bits
-      value: 72
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6484991083977285883, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
@@ -99958,11 +99974,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282633531002, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282633531002, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -1794020585
       objectReference: {fileID: 0}
     - target: {fileID: 5413061282687218733, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: m_Layer
@@ -100493,7 +100509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753362, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753373, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: m_RootOrder
@@ -100554,6 +100570,10 @@ PrefabInstance:
     - target: {fileID: 8033496631934753375, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: id
       value: 8d3adcc2-b4da-42b1-8959-5ac7afb01f3f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033496631934753375, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8033496631934753375, guid: 46317e74ae695e8488b496bd5e2cbfdf, type: 3}
       propertyPath: checkpointId
