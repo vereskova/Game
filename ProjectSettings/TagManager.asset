@@ -3,19 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - StatValue
+  - StatName
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Sword
+  - Item
+  - Background
   - 
   - 
   - 
@@ -40,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 932164555
+    locked: 0
+  - name: Enemy
+    uniqueID: 2500946711
+    locked: 0
+  - name: Player
+    uniqueID: 3119052829
+    locked: 0
+  - name: Item
+    uniqueID: 3582789347
+    locked: 0
+  - name: Ground
+    uniqueID: 4290690607
     locked: 0
