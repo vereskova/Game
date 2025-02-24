@@ -17749,7 +17749,7 @@ PrefabInstance:
       objectReference: {fileID: 9150072197323415388, guid: 445b9a0d642f8c144826f07ad3a91866, type: 3}
     - target: {fileID: 5413061283600725298, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: damage.baseValue
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725298, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: critPower.baseValue
@@ -17758,6 +17758,10 @@ PrefabInstance:
     - target: {fileID: 5413061283600725298, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: iceDamage.baseValue
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413061283600725298, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
+      propertyPath: maxHealth.baseValue
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 5413061283600725298, guid: c1a2356bb51a6194d985ea5b453dfdfb, type: 3}
       propertyPath: critChance.baseValue
