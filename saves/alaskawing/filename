@@ -1,5 +1,5 @@
 {
-    "currency": 392,
+    "currency": 0,
     "skillTree": {
         "keys": [
             "Blackhole",
@@ -38,14 +38,14 @@
             false,
             false,
             false,
+            true,
             false,
             false,
             false,
             false,
             false,
             false,
-            false,
-            false,
+            true,
             false,
             false,
             false,
@@ -69,35 +69,35 @@
             "6835c34bd80fc9c468d2f549f4b6220a"
         ],
         "values": [
-            2,
-            2,
-            3,
-            1,
-            1,
             1,
             2,
             1,
             1,
-            11,
+            1,
+            1,
+            2,
+            1,
+            1,
+            13,
             11
         ]
     },
     "equipmentId": [],
     "checkpoints": {
         "keys": [
-            "49972962-ab4f-4332-8ff8-656df73685c9",
             "2d3adcc2-b4da-42b1-8959-5ac7afb01f3f",
-            "8d3adcc2-b4da-42b1-8959-5ac7afb01f3f"
+            "8d3adcc2-b4da-42b1-8959-5ac7afb01f3f",
+            "49972962-ab4f-4332-8ff8-656df73685c9"
         ],
         "values": [
-            true,
+            false,
             true,
             true
         ]
     },
-    "closestCheckpointId": "2d3adcc2-b4da-42b1-8959-5ac7afb01f3f",
-    "lostCurrencyX": 109.53617858886719,
-    "lostCurrencyY": -10.33292293548584,
+    "closestCheckpointId": "49972962-ab4f-4332-8ff8-656df73685c9",
+    "lostCurrencyX": 10.250014305114746,
+    "lostCurrencyY": -2.3328938484191896,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [

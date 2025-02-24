@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour, ISaveManager
 {
+    public static UI instance; // добавляем синглтон
+
     [Header("End screen")]
     [SerializeField] private UI_FadeScreen fadeScreen;
     [SerializeField] private GameObject endText;
@@ -16,8 +19,6 @@ public class UI : MonoBehaviour, ISaveManager
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject inGameUI;
 
-
-
     public UI_SkillToolTip skillToolTip;
     public UI_ItemTooltip itemToolTip;
     public UI_StatToolTip statToolTip;
@@ -27,57 +28,65 @@ public class UI : MonoBehaviour, ISaveManager
 
     private void Awake()
     {
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
 
-        SwitchTo(skillTreeUI); // we need this to assign events on skill tree slots before we asssign events on skill scripts
+        SwitchTo(skillTreeUI); // для инициализации событий на skill tree
         fadeScreen.gameObject.SetActive(true);
     }
 
     void Start()
     {
         SwitchTo(inGameUI);
-
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.C))
             SwitchWithKeyTo(charcaterUI);
 
         if (Input.GetKeyDown(KeyCode.B))
             SwitchWithKeyTo(craftUI);
 
-
         if (Input.GetKeyDown(KeyCode.K))
             SwitchWithKeyTo(skillTreeUI);
 
         if (Input.GetKeyDown(KeyCode.O))
             SwitchWithKeyTo(optionsUI);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Если открыто какое-либо подменю, закрываем его
+            if (IsSubMenuActive())
+                SwitchTo(inGameUI);
+        }
     }
 
+    // Возвращает true, если какое-либо дополнительное меню активно
+    public bool IsSubMenuActive()
+    {
+        return charcaterUI.activeSelf || skillTreeUI.activeSelf || craftUI.activeSelf || optionsUI.activeSelf;
+    }
+
+    // Остальной код SwitchTo, SwitchWithKeyTo и т.д. остается без изменений...
     public void SwitchTo(GameObject _menu)
     {
-
         for (int i = 0; i < transform.childCount; i++)
         {
-            bool fadeScreen = transform.GetChild(i).GetComponent<UI_FadeScreen>() != null; // we need this to keep fade screen game object active
-
-
-            if (fadeScreen == false)
+            bool isFadeScreen = transform.GetChild(i).GetComponent<UI_FadeScreen>() != null;
+            if (!isFadeScreen)
                 transform.GetChild(i).gameObject.SetActive(false);
         }
-
-
 
         if (_menu != null)
         {
             AudioManager.instance.PlaySFX(5, null);
             _menu.SetActive(true);
         }
-
 
         if (GameManager.instance != null)
         {
@@ -96,7 +105,6 @@ public class UI : MonoBehaviour, ISaveManager
             CheckForInGameUI();
             return;
         }
-
         SwitchTo(_menu);
     }
 
@@ -107,23 +115,21 @@ public class UI : MonoBehaviour, ISaveManager
             if (transform.GetChild(i).gameObject.activeSelf && transform.GetChild(i).GetComponent<UI_FadeScreen>() == null)
                 return;
         }
-
         SwitchTo(inGameUI);
     }
 
     public void SwitchOnEndScreen()
     {
         fadeScreen.FadeOut();
-        StartCoroutine(EndScreenCorutione());
+        StartCoroutine(EndScreenCoroutine());
     }
 
-    IEnumerator EndScreenCorutione()
+    IEnumerator EndScreenCoroutine()
     {
         yield return new WaitForSeconds(1);
         endText.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         restartButton.SetActive(true);
-
     }
 
     public void RestartGameButton() => GameManager.instance.RestartScene();
@@ -143,7 +149,6 @@ public class UI : MonoBehaviour, ISaveManager
     public void SaveData(ref GameData _data)
     {
         _data.volumeSettings.Clear();
-
         foreach (UI_VolumeSlider item in volumeSettings)
         {
             _data.volumeSettings.Add(item.parametr, item.slider.value);
